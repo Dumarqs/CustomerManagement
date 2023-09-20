@@ -29,3 +29,19 @@ services:
       - "7203:7203"
       - "8080:8080"
     restart: on-failure
+    
+  authenticationapi:
+    build:
+      dockerfile: ./dockerAuthenticationAPI
+    environment:
+      ConnectionStrings__CnnDB: "Data Source=sqlserver,1433;Initial Catalog=ManagementCustomer;User Id=SA;Password=Test2023;encrypt=false"
+      JwtParameters__Audience: ""
+      JwtParameters__Issuer: "http://authenticationapi"
+      JwtParameters__Secret: "ThebeautyofLifedependhowyouseetheworld"
+      JwtParameters__ExpiresHours: "24"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:5221"
+    ports:
+      - "7216:7216"
+      - "5221:5221"
+    restart: on-failure
