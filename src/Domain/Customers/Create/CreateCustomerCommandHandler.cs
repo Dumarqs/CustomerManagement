@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Domain.Customers.Create
 {
-    public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand> 
+    internal sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CustomerResponseId> 
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -16,16 +16,19 @@ namespace Domain.Customers.Create
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
-        {
+        public async Task<CustomerResponseId> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+        {           
+            var customerId = new CustomerResponseId(Guid.NewGuid());
             var customer = new Customer(
-                                Guid.NewGuid(),
+                                customerId.Id,
                                 request.Name,
                                 request.Address,
                                 request.Email);
 
             await _customerRepository.AddAsync(customer);
             _unitOfWork.Commit();
+
+            return customerId;
         }
     }
 }

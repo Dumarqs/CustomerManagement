@@ -14,16 +14,16 @@ namespace CustomerAPI.Endpoints
     {
         public Customers() : base("/customers")
         {
-            //this.RequireAuthorization();
+            this.RequireAuthorization();
         }
 
         public override void AddRoutes(IEndpointRouteBuilder app)
         {
             app.MapPost("/", async (CreateCustomerCommand command, ISender sender) =>
             {
-                await sender.Send(command);
+                var customerId = await sender.Send(command);
 
-                return Results.Ok();
+                return Results.Ok(customerId);
             });
 
             app.MapGet("/{id:guid}", async (Guid id, ISender sender) =>

@@ -9,16 +9,6 @@
     }
   },
   "profiles": {
-    "http": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5129",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
@@ -26,15 +16,12 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7077;http://localhost:5129",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionStrings__SqlServerConnection": "Data Source=localhost,1433;Initial Catalog=ManagementCustomer;User Id=SA;Password=Test2023;encrypt=false",
+        "JwtParameters__Audience": "",
+        "JwtParameters__Issuer": "https://localhost:7077",
+        "JwtParameters__Secret": "ThebeautyofLifedependhowyouseetheworld",
+        "JwtParameters__ExpiresHours": "24"
       }
     }
   }
