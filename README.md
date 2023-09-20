@@ -1,8 +1,8 @@
 # Customer Management
 
 ## Assignment
-The goal of this test is to create an API to register a new user and authenticate
-Generate another API to generate the customer based on the token generated
+- The goal of this test is to create an API to register a new user and authenticate
+- Generate another API to generate the customer based on the token generated
 
 ## Solution
 * - REST API using minipal API, CQRS, Mediatr, Dapper, Automapper, SQL Server, xUnit
@@ -17,9 +17,10 @@ You must have *docker* installed on your operating system (Linux, Windows or Mac
 *Obs.: Navigate the folder until you reach the project' folder.*
 
 ### Run the command:
-- ` docker-compose up --build` 
+- ` docker-compose -f docker-compose.yml up` 
 
 # Steps to debug the application
+
 1. docker-compose -f docker-compose.develop.yml up -d
 2. Open the solution with Visual Studio  
 3. Right-click into the Solution -> `Properties`  
