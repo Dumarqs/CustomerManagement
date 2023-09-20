@@ -1,9 +1,10 @@
 ﻿using CustomerAPI.ViewModels;
 using Domain.Customers.Create;
 using Domain.Customers.Read;
-using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Security.Claims;
 
 namespace CustomerAPI.Tests
 {
@@ -11,10 +12,19 @@ namespace CustomerAPI.Tests
     {
         private readonly HttpClient _client;
 
-        public CustomerEndpointsTests()
+        public CustomerEndpointsTests() 
         {
-            var appFactory = new WebApplicationFactory<Program>();
+            var appFactory = new BaseIntegrationTest();                   
             _client = appFactory.CreateClient();
+
+            var authClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, "test"),
+                new Claim(ClaimTypes.Name, "test"),
+                new Claim(ClaimTypes.Role, "user")
+            };
+
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", MockJwtTokens.GenerateJwtToken(authClaims));
         }
 
         [Fact]

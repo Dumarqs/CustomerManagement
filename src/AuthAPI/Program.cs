@@ -131,4 +131,7 @@ app.UseHttpsRedirection();
 
 app.Run();
 
-public partial class Program { }
+namespace AuthenticationAPI
+{
+    public partial class Program { }
+}

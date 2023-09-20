@@ -20,7 +20,7 @@ services:
     environment:
       ConnectionStrings__CnnDB: "Data Source=sqlserver,1433;Initial Catalog=ManagementCustomer;User Id=SA;Password=Test2023;encrypt=false"
       JwtParameters__Audience: ""
-      JwtParameters__Issuer: "http://customerapi"
+      JwtParameters__Issuer: "http://authenticationapi"
       JwtParameters__Secret: "ThebeautyofLifedependhowyouseetheworld"
       JwtParameters__ExpiresHours: "24"
       ASPNETCORE_ENVIRONMENT: "Development"

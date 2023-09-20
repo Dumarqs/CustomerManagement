@@ -14,7 +14,7 @@ namespace CustomerAPI.Endpoints
     {
         public Customers() : base("/customers")
         {
-            this.RequireAuthorization();
+            RequireAuthorization();
         }
 
         public override void AddRoutes(IEndpointRouteBuilder app)

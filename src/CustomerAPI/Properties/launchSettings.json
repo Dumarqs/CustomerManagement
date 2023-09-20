@@ -19,7 +19,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ConnectionStrings__SqlServerConnection": "Data Source=localhost,1433;Initial Catalog=ManagementCustomer;User Id=SA;Password=Test2023;encrypt=false",
         "JwtParameters__Audience": "",
-        "JwtParameters__Issuer": "https://localhost:7216",
+        "JwtParameters__Issuer": "https://localhost:7077",
         "JwtParameters__Secret": "ThebeautyofLifedependhowyouseetheworld",
         "JwtParameters__ExpiresHours": "24"
       }

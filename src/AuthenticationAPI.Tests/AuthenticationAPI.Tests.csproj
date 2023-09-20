@@ -34,7 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomerAPI\CustomerAPI.csproj" />
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\AuthAPI\AuthAPI.csproj" />
   </ItemGroup>
 
 </Project>
