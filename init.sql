@@ -1,0 +1,10 @@
+CREATE DATABASE ManagementCustomer;
+
+
+USE ManagementCustomer
+CREATE TABLE Customer (
+	Id UNIQUEIDENTIFIER PRIMARY KEY,
+	Name VARCHAR(50) NOT NULL,
+	Address VARCHAR(50) NOT NULL,
+	Email VARCHAR(100) NOT NULL
+)

@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  sqlserver:
+    image: 'mcr.microsoft.com/mssql/server:2022-latest'
+    container_name: 'sqlserver'
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Test2023"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
+      
+  customerapi:
+    build:
+      dockerfile: ./dockerCustomerAPI
+    environment:
+      ConnectionStrings__CnnDB: "Data Source=sqlserver,1433;Initial Catalog=ManagementCustomer;User Id=SA;Password=Test2023;encrypt=false"
+      JwtParameters__Audience: ""
+      JwtParameters__Issuer: "http://customerapi"
+      JwtParameters__Secret: "ThebeautyofLifedependhowyouseetheworld"
+      JwtParameters__ExpiresHours: "24"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:8080"
+    ports:
+      - "7203:7203"
+      - "8080:8080"
+    restart: on-failure
