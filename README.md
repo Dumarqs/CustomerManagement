@@ -19,6 +19,10 @@ You must have *docker* installed on your operating system (Linux, Windows or Mac
 ### Run the command:
 - ` docker-compose -f docker-compose.yml up` 
 
+### Test using OpenAPI
+- http://localhost:5221/swagger/index.html for Authentication API
+- http://localhost:8080/swagger/index.html for Customer API
+
 # Steps to debug the application
 
 1. docker-compose -f docker-compose.develop.yml up -d
